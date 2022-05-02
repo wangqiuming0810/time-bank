@@ -20,7 +20,7 @@
     </el-tabs>
     <div class="info">
       <router-link to="/vipinfo" class="info-bt" style="padding: 0 20px"><img :src="info.photo" alt="" style="border-radius: 50%; width: 52px;height: 52px;float: left"></router-link>
-      <p style="width: 190px;text-align: center;height:52px;line-height: 52px;font-size: 12px;">嗨! 欢迎</p>
+      <p style="width: 190px;text-align: center;height:52px;font-size: 20px;">杨大爷</p>
       <button style="" @click="login">登入</button>
       <button @click="register">注册</button>
       <div style="border-bottom: 1px solid #dddddd;"></div>
@@ -139,10 +139,10 @@
     <el-dialog title="公分充值" :visible.sync="dialogFormVisible7" class="datafrom">
       <el-form :model="gongfenfrom3">
         <el-form-item label="充值人ID" :label-width="formLabelWidth">
-          <el-input v-model="gongfenfrom3.toAssetId" autocomplete="off"></el-input>
+          <el-input v-model="gongfenfrom3.toUserID" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="充值数量" :label-width="formLabelWidth">
-          <el-input v-model="gongfenfrom3.assetValue" autocomplete="off"></el-input>
+          <el-input v-model="gongfenfrom3.rechargeValue" autocomplete="off"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -193,9 +193,9 @@ export default {
         servicingOlderID: '',
       },
       form4: {
-        ServicingType: 'J01',
-        ServicingOlderID: '01',
-        ServicingCount: '1',
+        ServicingType: '',
+        ServicingOlderID: '',
+        ServicingCount: '',
       },
       dialogFormVisible5: false,
       dialogFormVisible6: false,
@@ -208,10 +208,11 @@ export default {
       gongfenfrom2:{
         fromAssetId:'',
         toAssetId:'',
+
       },
       gongfenfrom3:{
-        toAssetId:'',
-        assetValue:'',
+        toUserID:'',
+        rechargeValue:'',
       },
       formLabelWidth: '120px'
     }
@@ -234,7 +235,12 @@ export default {
       this.dialogFormVisible1 = false
       this.$http.post('api/v1/DoneServicing',this.form1).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        const h = this.$createElement;
+        this.$notify({
+          title: '您的交易ID为',
+          message: h('i', { style: 'color: teal'}, res.data.Data.TxID),
+        });
+        this.$message.success('结束服务成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })
@@ -244,7 +250,7 @@ export default {
       this.dialogFormVisible2 = false
       this.$http.post('api/v1/CloseServicing',this.form2).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        this.$message.success('取消服务成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })
@@ -254,7 +260,7 @@ export default {
       this.dialogFormVisible3 = false
       this.$http.post('api/v1/AcceptServicing',this.form3).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        this.$message.success('接受服务成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })
@@ -264,7 +270,7 @@ export default {
       this.dialogFormVisible4 = false
       this.$http.post('api/v1/CreateServicing',this.form4).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        this.$message.success('发布服务成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })
@@ -274,7 +280,12 @@ export default {
       this.dialogFormVisible5 = false
       this.$http.post('api/v1/TransferAsset',this.gongfenfrom1).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        const h = this.$createElement;
+        this.$notify({
+          title: '您的交易ID为',
+          message: h('i', { style: 'color: teal'}, res.data.Data.TransferID),
+        });
+        this.$message.success('转移工分成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })
@@ -284,7 +295,12 @@ export default {
       this.dialogFormVisible6 = false
       this.$http.post('api/v1/InheritAsset',this.gongfenfrom2).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        const h = this.$createElement;
+        this.$notify({
+          title: '您的交易ID为',
+          message: h('i', { style: 'color: teal'}, res.data.Data.TransferID),
+        });
+        this.$message.success('继承成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })
@@ -294,7 +310,12 @@ export default {
       this.dialogFormVisible7 = false
       this.$http.post('api/v1/RechargeAsset',this.gongfenfrom3).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        const h = this.$createElement;
+        this.$notify({
+          title: '您的交易ID为',
+          message: h('i', { style: 'color: teal'}, res.data.Data.RechargeID),
+        });
+        this.$message.success('添加工分成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })

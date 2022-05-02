@@ -6,8 +6,8 @@ module.exports = defineConfig({
     proxy: {
       //配置跨域
       '/api': {
-        // target: 'http://10.128.161.59:8410', //这里填写项目真实的后台接口地址
-        target: 'http://10.128.164.14', //这里填写项目真实的后台接口地址
+        target: 'http://10.128.161.59', //这里填写项目真实的后台接口地址
+        // target: 'http://10.128.164.14', //这里填写项目真实的后台接口地址
         changOrigin: true, //设置允许跨域
         pathRewrite: {//这个重写不可省略！因为我们真正请求的地址并不含 /api
           '^/api': ''

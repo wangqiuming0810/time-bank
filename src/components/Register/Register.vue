@@ -40,14 +40,14 @@ export default {
   data() {
     return {
       info: {
-        ability:'1',
-        userName: '1',
-        userIdentification: '1',
-        sex: '1',
-        birthday: '1',
-        address: '1',
-        postcode:'330027',
-        recommendID:'01'
+        ability:'',
+        userName: '',
+        userIdentification: '',
+        sex: '',
+        birthday: '',
+        address: '',
+        postcode:'',
+        recommendID:''
       }
     }
   },

@@ -3,16 +3,10 @@
     <HeaderTop></HeaderTop>
     <Navbar></Navbar>
     <div class="search-input">
-      <h2 style="margin: 20px 0px">搜索未结束的服务</h2>
+      <h2 style="margin: 20px 0px">转账历史</h2>
       <el-input
           placeholder="请输入被服务人id"
-          v-model="form.elderID"
-          style="width: 200px;"
-      >
-      </el-input>
-      <el-input
-          placeholder="请输入服务类型"
-          v-model="form.jobID"
+          v-model="form.specialTxID"
           style="width: 200px;"
       >
       </el-input>
@@ -24,40 +18,29 @@
             stripe
             style="width: 100%">
           <el-table-column
-              prop="ServicingCount"
-              label="服务数量"
+              prop="RechargeID"
+              label="转账数量"
               width="180">
           </el-table-column>
           <el-table-column
-              prop="ServicingOlderID"
-              label="被服务人id"
+              prop="RechargeTime"
+              label="转账人ID"
               width="180">
           </el-table-column>
           <el-table-column
-              prop="ServicingState"
-              label="服务状态">
+              prop="RechargeValue"
+              label="收账人ID">
           </el-table-column>
 
           <el-table-column
-              prop="ServicingType"
-              label="服务类型">
+              prop="ToUserID"
+              label="转账ID">
           </el-table-column>
 
           <el-table-column
-              prop="ServicingValue"
-              label="服务价值">
+              prop=""
+              label="转账时间">
           </el-table-column>
-
-          <el-table-column
-              prop="ServicingVolID"
-              label="服务ID">
-          </el-table-column>
-
-          <el-table-column
-              prop="StartTime"
-              label="开始时间">
-          </el-table-column>
-
         </el-table>
       </div>
     </div>
@@ -72,36 +55,33 @@ export default {
     HeaderTop,
     Navbar
   },
-  name: "SearchServicing",
+  name: "SearchRechargeList",
   data(){
     return{
       form: {
-        elderID: '',
-        jobID: ''
+        specialTxID: '',
       },
       ServeData:[
         {
-          ServicingCount: '',
-          ServicingOlderID: '',
-          ServicingState: '',
-          ServicingType: '',
-          ServicingValue: '',
-          ServicingVolID: '',
-          StartTime: ''
-        }
+          AssetValue: '',
+          FormAsset: '',
+          ToAsset: '',
+          TransferID: '',
+          TransferTime: '',
+        },
       ]
     }
   },
   methods:{
     serch(){
-      if(this.form.elderID == '' || this.form.jobID == '') {
+      if(this.form.rechargeID == ''){
         this.$message({
-          message: '请输入被服务人id和服务类型',
+          message: '请输入被服务人id',
           type: 'warning'
-        })
-        return
+        });
+        return;
       }
-      this.$http.post('api/v1/ServicingStatusList',this.form).then(res => {
+      this.$http.post('api/v1/SpecialTxList',this.form).then(res => {
         console.log(res)
         this.ServeData = res.data.Data
         this.$message.success('查询成功')

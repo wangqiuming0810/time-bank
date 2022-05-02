@@ -35,6 +35,7 @@ export default {
         {name:'/SearchServicing',navItem:'未结束的服务'},
         {name:'/SearchServed',navItem:'已结束的服务'},
         {name:'/SearchRechargeList',navItem:'充值历史'},
+        {name:'/SearchSpecialTxList',navItem:'转账历史'},
       ],
       formLabelWidth: '120px'
     }

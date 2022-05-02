@@ -131,7 +131,7 @@ export default {
       }
       this.$http.post('api/v1/TxList',this.form).then(res => {
         console.log(res)
-        this.ServeData=res.data
+        this.ServeData=res.data.Data
         this.$message.success('查询成功')
       }).catch(err => {
         console.log(err)

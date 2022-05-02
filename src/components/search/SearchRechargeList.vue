@@ -3,7 +3,7 @@
     <HeaderTop></HeaderTop>
     <Navbar></Navbar>
     <div class="search-input">
-      <h2 style="margin: 20px 0px">搜索未结束的服务</h2>
+      <h2 style="margin: 20px 0px">充值历史</h2>
       <el-input
           placeholder="请输入被服务人id"
           v-model="form.rechargeID"
@@ -19,22 +19,22 @@
             style="width: 100%">
           <el-table-column
               prop="RechargeID"
-              label="RechargeID"
+              label="充值ID"
               width="180">
           </el-table-column>
           <el-table-column
               prop="RechargeTime"
-              label="RechargeTime"
+              label="充值时间"
               width="180">
           </el-table-column>
           <el-table-column
               prop="RechargeValue"
-              label="RechargeValue">
+              label="充值数量">
           </el-table-column>
 
           <el-table-column
               prop="ToUserID"
-              label="ToUserID">
+              label="充值账户">
           </el-table-column>
 
         </el-table>
@@ -76,9 +76,9 @@ export default {
         });
         return;
       }
-      this.$http.post('api/v1/ServicingStatusList',this.form).then(res => {
+      this.$http.post('api/v1/RechargeList',this.form).then(res => {
         console.log(res)
-        this.ServeData = res.data.data
+        this.ServeData = res.data.Data
         this.$message.success('查询成功')
       }).catch(err => {
         console.log(err)

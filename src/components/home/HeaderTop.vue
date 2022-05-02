@@ -1,9 +1,9 @@
 <template>
   <div class="top">
     <div>
-      <p style="float:left;margin: 0px;">欢迎来到南沙时间银行！</p>
+      <p style="float:left;margin: 0px;">欢迎来到时光元链！</p>
       <button style="float:right" onmouseover="this.style.color='#ec7f30';" onmouseout="this.style.color='#000000';">
-        首页
+        <router-link to="/main">首页</router-link>
       </button>
       <button style="float:right"
               onmouseover="this.style.color='#ec7f30';"
