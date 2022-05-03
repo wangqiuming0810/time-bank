@@ -1,9 +1,9 @@
 <template>
   <div class="top">
     <div>
-      <p style="float:left;margin: 0px;">欢迎来到南沙时间银行！</p>
+      <p style="float:left;margin: 0px;">欢迎来到时光元链！</p>
       <button style="float:right" onmouseover="this.style.color='#ec7f30';" onmouseout="this.style.color='#000000';">
-        首页
+        <router-link to="/main">首页</router-link>
       </button>
       <button style="float:right"
               onmouseover="this.style.color='#ec7f30';"
@@ -13,7 +13,7 @@
       </button>
     </div>
     <div class="dav">
-      <img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0y0it7ptnj21p404ujtm.jpg" alt="" style="width: 100%;height: 100%;">
+      <img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1vbsfi4myj20u005kwf0.jpg" alt="" style="width: 100%;height: 180px;">
     </div>
   </div>
 </template>

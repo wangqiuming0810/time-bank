@@ -25,37 +25,37 @@
             style="width: 100%">
           <el-table-column
               prop="ServicingCount"
-              label="ServicingCount"
+              label="服务数量"
               width="180">
           </el-table-column>
           <el-table-column
               prop="ServicingOlderID"
-              label="ServicingOlderID"
+              label="被服务人id"
               width="180">
           </el-table-column>
           <el-table-column
               prop="ServicingState"
-              label="ServicingState">
+              label="服务状态">
           </el-table-column>
 
           <el-table-column
               prop="ServicingType"
-              label="ServicingType">
+              label="服务类型">
           </el-table-column>
 
           <el-table-column
               prop="ServicingValue"
-              label="ServicingValue">
+              label="服务价值">
           </el-table-column>
 
           <el-table-column
               prop="ServicingVolID"
-              label="ServicingVolID">
+              label="服务ID">
           </el-table-column>
 
           <el-table-column
               prop="StartTime"
-              label="StartTime">
+              label="开始时间">
           </el-table-column>
 
         </el-table>
@@ -81,13 +81,13 @@ export default {
       },
       ServeData:[
         {
-          ServicingCount: '1',
-          ServicingOlderID: '2',
-          ServicingState: '3',
-          ServicingType: '4',
-          ServicingValue: '5',
-          ServicingVolID: '6',
-          StartTime: '7'
+          ServicingCount: '',
+          ServicingOlderID: '',
+          ServicingState: '',
+          ServicingType: '',
+          ServicingValue: '',
+          ServicingVolID: '',
+          StartTime: ''
         }
       ]
     }
@@ -103,7 +103,7 @@ export default {
       }
       this.$http.post('api/v1/ServicingStatusList',this.form).then(res => {
         console.log(res)
-        this.ServeData = res.data.data
+        this.ServeData = res.data.Data
         this.$message.success('查询成功')
       }).catch(err => {
         console.log(err)
@@ -118,7 +118,10 @@ export default {
 
 .search-input{
   width: 1100px;
+  height: 990px;
   margin: 0 auto;
+  background: url('https://tva1.sinaimg.cn/large/e6c9d24egy1h1vd0r8t7hj20mf0iyjsq.jpg') no-repeat;
+  background-size: 100% 990px;
 }
 
 </style>

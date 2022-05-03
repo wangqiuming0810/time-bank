@@ -3,10 +3,10 @@
     <HeaderTop></HeaderTop>
     <Navbar></Navbar>
     <div class="search-input">
-      <h2 style="margin: 20px 0px">充值历史</h2>
+      <h2 style="margin: 20px 0px">转账历史</h2>
       <el-input
           placeholder="请输入被服务人id"
-          v-model="form.rechargeID"
+          v-model="form.specialTxID"
           style="width: 200px;"
       >
       </el-input>
@@ -19,24 +19,28 @@
             style="width: 100%">
           <el-table-column
               prop="RechargeID"
-              label="充值ID"
+              label="转账数量"
               width="180">
           </el-table-column>
           <el-table-column
               prop="RechargeTime"
-              label="充值时间"
+              label="转账人ID"
               width="180">
           </el-table-column>
           <el-table-column
               prop="RechargeValue"
-              label="充值数量">
+              label="收账人ID">
           </el-table-column>
 
           <el-table-column
               prop="ToUserID"
-              label="充值账户">
+              label="转账ID">
           </el-table-column>
 
+          <el-table-column
+              prop=""
+              label="转账时间">
+          </el-table-column>
         </el-table>
       </div>
     </div>
@@ -55,14 +59,15 @@ export default {
   data(){
     return{
       form: {
-        rechargeID: '',
+        specialTxID: '',
       },
       ServeData:[
         {
-          RechargeID: '',
-          RechargeTime: '',
-          RechargeValue: '',
-          ToUserID: '',
+          AssetValue: '',
+          FormAsset: '',
+          ToAsset: '',
+          TransferID: '',
+          TransferTime: '',
         },
       ]
     }
@@ -76,7 +81,7 @@ export default {
         });
         return;
       }
-      this.$http.post('api/v1/RechargeList',this.form).then(res => {
+      this.$http.post('api/v1/SpecialTxList',this.form).then(res => {
         console.log(res)
         this.ServeData = res.data.Data
         this.$message.success('查询成功')

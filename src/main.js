@@ -11,9 +11,9 @@ import axios from 'axios'
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 //配置请求的基本路径
-axios.defaults.baseURL = 'http://10.128.164.14:8410'
+// axios.defaults.baseURL = 'http://10.128.164.14:8410'
 axios.defaults.timeout = 3000
-// axios.defaults.baseURL = 'http://10.128.161.59:8410'
+axios.defaults.baseURL = 'http://10.128.161.59:8410'
 Vue.prototype.$http = axios
 
 

@@ -3,7 +3,7 @@
   <div class="slide">
     <el-carousel  >
       <el-carousel-item v-for="item in images" :key="item">
-        <img :src="item" >
+        <img :src="item" width="100%" height="100%">
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -15,10 +15,10 @@ export default {
   data(){
     return {
       images:[
-        // "https://www.nstimebank.com/timebank/thumb/upload/imageTab/1645579276257.png?w=666&h=280",
-        "https://www.nstimebank.com/timebank/thumb/upload/imageTab/1641886595398.png?w=666&h=280",
-        "https://www.nstimebank.com/timebank/thumb/upload/imageTab/1641886421787.png?w=666&h=280",
-        "https://www.nstimebank.com/timebank/thumb/upload/imageTab/1625105282024.png?w=666&h=280"
+        "https://tva1.sinaimg.cn/large/e6c9d24egy1h1vbkq9vebj20u00gvq5p.jpg",
+          "https://tva1.sinaimg.cn/large/e6c9d24egy1h1vbl3t7zcj20tq0gqjtu.jpg",
+          "https://tva1.sinaimg.cn/large/e6c9d24egy1h1vbld4hy6j20xq0iz0vl.jpg",
+          "https://tva1.sinaimg.cn/large/e6c9d24egy1h1vbll569bj20tz0gu0vh.jpg"
       ]
     }
   }

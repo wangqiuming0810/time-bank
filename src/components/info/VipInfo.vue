@@ -64,18 +64,51 @@
           </template>
           {{info.ability}}
         </el-descriptions-item>
+
+        <el-descriptions-item>
+          <template slot="label">
+            <i class="el-icon-office-building"></i>
+            星级标准
+          </template>
+          {{info.StarSign}}
+        </el-descriptions-item>
+
+        <el-descriptions-item>
+          <template slot="label">
+            <i class="el-icon-office-building"></i>
+            用户资产
+          </template>
+          {{info.UserAsset}}
+        </el-descriptions-item>
+
+        <el-descriptions-item>
+          <template slot="label">
+            <i class="el-icon-office-building"></i>
+            评论
+          </template>
+          {{info.Comment}}
+        </el-descriptions-item>
+
+        <el-descriptions-item>
+          <template slot="label">
+            <i class="el-icon-office-building"></i>
+            推荐
+          </template>
+          {{info.RecommenderID}}
+        </el-descriptions-item>
+
       </el-descriptions>
     </div>
     <el-dialog title="结束服务" :visible.sync="dialogFormVisible1" class="datafrom">
       <el-form :model="UpdateInfo">
-        <el-form-item label="能力">
-          <el-input v-model="UpdateInfo.userid"></el-input>
+        <el-form-item label="ID">
+          <el-input v-model="UpdateInfo.userID"></el-input>
         </el-form-item>
         <el-form-item label="用户姓名">
-          <el-input v-model="UpdateInfo.username"></el-input>
+          <el-input v-model="UpdateInfo.userName"></el-input>
         </el-form-item>
         <el-form-item label="身份证号">
-          <el-input v-model="UpdateInfo.idcard"></el-input>
+          <el-input v-model="UpdateInfo.userIdentification"></el-input>
         </el-form-item>
         <el-form-item label="性别">
           <el-input v-model="UpdateInfo.sex"></el-input>
@@ -89,6 +122,10 @@
         <el-form-item label="邮政编码">
           <el-input v-model="UpdateInfo.postcode"></el-input>
         </el-form-item>
+        <el-form-item label="能力">
+          <el-input v-model="UpdateInfo.ability"></el-input>
+        </el-form-item>
+
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="cancel">取 消</el-button>
@@ -114,23 +151,27 @@ export default {
   data(){
     return{
       info:{
-        username:'12345678',
-        userid:'23546',
-        idcard:'44685',
-        sex: '22222',
-        birthday: '1234',
-        address: '46667',
-        postcode: '4443',
-        ability: '23555'
+        username:'杨大爷',
+        userid:'01',
+        idcard:'360732200108100917',
+        sex: '男',
+        birthday: '1990-3-7',
+        address: '江西师范大学',
+        postcode: '330027',
+        ability: '能力',
+        StarSign: '3',
+        UserAsset: '1000',
+        Comment: '很细心',
+        RecommenderID: '',
       },
       UpdateInfo: {
-        userid:'23546',
-        username:'12345678',
-        idcard:'44685',
+        userID:'01',
+        userName:'12345678',
+        userIdentification:'44685',
         sex: '22222',
         birthday: '1234',
         address: '46667',
-        postcode: '4443',
+        postcode: '330027',
         ability: '23555'
       },
       dialogFormVisible1:false
@@ -144,9 +185,9 @@ export default {
   methods:{
     submit() {
       this.dialogFormVisible1 = false
-      this.$http.post('api/v1/DoneServicing',this.UpdateInfo).then(res => {
+      this.$http.post('api/v1/UpdateUserInfo',this.UpdateInfo).then(res => {
         console.log(res)
-        this.$message.success('添加成功')
+        this.$message.success('更新成功')
       }).catch(err => {
         console.log(err,"添加失败，请求出错")
       })

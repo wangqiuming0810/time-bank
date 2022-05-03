@@ -131,7 +131,7 @@ export default {
       }
       this.$http.post('api/v1/TxList',this.form).then(res => {
         console.log(res)
-        this.ServeData=res.data
+        this.ServeData=res.data.Data
         this.$message.success('查询成功')
       }).catch(err => {
         console.log(err)
@@ -146,7 +146,10 @@ export default {
 
 .search-input{
   width: 1100px;
+  height: 990px;
   margin: 0 auto;
+  background: url('https://tva1.sinaimg.cn/large/e6c9d24egy1h1vd0r8t7hj20mf0iyjsq.jpg') no-repeat;
+  background-size: 100% 990px;
 }
 
 </style>
