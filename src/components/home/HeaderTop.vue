@@ -13,7 +13,7 @@
       </button>
     </div>
     <div class="dav">
-      <img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h0y0it7ptnj21p404ujtm.jpg" alt="" style="width: 100%;height: 100%;">
+      <img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h1vbsfi4myj20u005kwf0.jpg" alt="" style="width: 100%;height: 180px;">
     </div>
   </div>
 </template>
