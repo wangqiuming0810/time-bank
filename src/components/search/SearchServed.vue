@@ -146,7 +146,10 @@ export default {
 
 .search-input{
   width: 1100px;
+  height: 990px;
   margin: 0 auto;
+  background: url('https://tva1.sinaimg.cn/large/e6c9d24egy1h1vd0r8t7hj20mf0iyjsq.jpg') no-repeat;
+  background-size: 100% 990px;
 }
 
 </style>
